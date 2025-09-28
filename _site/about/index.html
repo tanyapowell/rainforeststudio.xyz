@@ -4,33 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Rainforest Studio</title>
-  <meta name="description" content="Learn about Nova&#39;s VR Website">
+  <meta name="description" content="About Rainforest Studio — a Lab without Walls bridging culture and AI">
   <link rel="stylesheet" href="/assets/css/main.css">
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 </head>
 <body>
-  <header>
-        <h1><a href="/">Rainforest Studio</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/threads">Threads of Memory</a></li>
-        <li><a href="/lab-notes">Lab Notes</a></li>
-      </ul>
-    </nav>
-    <div class="theme-controls" style="display:flex; gap:.5rem; align-items:center; justify-content:center;">
-      <button id="mode-toggle" class="btn" type="button" aria-label="Toggle dark mode">🌗</button>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="/" aria-label="Rainforest Studio">
+        <img class="brand__logo" src="/assets/images/logo.svg" width="44" height="44" alt="" role="presentation">
+        <span class="brand__label">Rainforest Studio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__icon" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/lab-notes">Lab Notes</a></li>
+        </ul>
+        <div class="theme-controls">
+          <button id="mode-toggle" class="btn" type="button" aria-label="Toggle dark mode">🌗</button>
+        </div>
+      </nav>
     </div>
   </header>
-  <main>
-    <h1>About</h1>
-<p>This website showcases a virtual reality experience built using Eleventy for static site generation, GitHub Pages for hosting, and A-Frame for VR rendering.</p>
-<h2>Features</h2>
+  <main class="site-main">
+    <h1>About Rainforest Studio</h1>
+<p>Rainforest Studio is a <strong>Lab without Walls</strong> — a place where culture and technology meet to prototype new ideas, test them with real people, and share what we learn openly.</p>
+<p>Founded by Tanya (aka <em>TanTan</em>), the studio is rooted in <strong>Tottenham, Haringey</strong> and connected to a wider creative tech community. We’re building pathways towards <strong>Haringey Borough of Culture 2027</strong>, ensuring local stories and creative voices are part of the future.</p>
+<h2>What we do</h2>
 <ul>
-<li>Immersive 360° environments</li>
-<li>Interactive elements</li>
-<li>Mobile-friendly VR</li>
+<li><strong>Prototyping culture + AI</strong> — playful experiments that combine heritage, storytelling, and emerging tools.</li>
+<li><strong>Co‑creation</strong> — working with local communities, makers, and artists to shape the projects.</li>
+<li><strong>Accessibility</strong> — from lo‑fi workshops to hi‑fi immersive builds, we design for inclusion.</li>
+<li><strong>Knowledge sharing</strong> — documenting openly so others can remix, reuse, and learn.</li>
 </ul>
+<h2>Why “Rainforest”?</h2>
+<p>A rainforest is a <strong>living system</strong> — diverse, interconnected, resilient. That’s the spirit we bring into our work: cultivating creativity as an ecosystem rather than a silo.</p>
+<h2>Who’s involved</h2>
+<ul>
+<li><strong>Tanya / TanTan</strong> — Founder, technologist, culture‑builder.</li>
+<li><strong>AI team‑mates</strong> — Codie (dev), Bizzy (product), Nova (innovation), Granty (funding), Ally (accessibility).</li>
+<li><strong>Collaborators</strong> — Local makers, artists, and organisations in Haringey and beyond.</li>
+</ul>
+<hr>
+<p>Interested in collaborating? Reach out via <a href="mailto:hello@rainforeststudios.xyz">hello@rainforeststudios.xyz</a> or connect on <a href="https://www.linkedin.com/in/tanyapowell/">LinkedIn</a>.</p>
 
   </main>
   <footer>
@@ -52,6 +73,9 @@
 
       const paletteBtn = document.getElementById("palette-toggle");
       const modeBtn = document.getElementById("mode-toggle");
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('site-nav');
+      const desktopMedia = window.matchMedia('(min-width: 720px)');
 
       updatePaletteLabel();
 
@@ -88,6 +112,35 @@
       function updatePaletteLabel() {
         const isFern = root.classList.contains("theme-fern");
         if (paletteBtn) paletteBtn.textContent = `Palette: ${isFern ? "Fern" : "Lab"}`;
+      }
+
+      if (nav && navToggle) {
+        document.body.classList.add('nav-collapsible');
+
+        const syncNav = () => {
+          if (desktopMedia.matches) {
+            nav.classList.add('is-open');
+            navToggle.setAttribute('aria-expanded', 'true');
+          } else {
+            nav.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        };
+
+        syncNav();
+
+        if (typeof desktopMedia.addEventListener === 'function') {
+          desktopMedia.addEventListener('change', syncNav);
+        } else if (typeof desktopMedia.addListener === 'function') {
+          desktopMedia.addListener(syncNav);
+        }
+
+        navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          const next = !expanded;
+          navToggle.setAttribute('aria-expanded', String(next));
+          nav.classList.toggle('is-open', next);
+        });
       }
     })();
   </script>

@@ -4,16 +4,48 @@ title: Home
 description: Welcome to Rainforest Studio
 ---
 
+
 # Rainforest Studio
 
-This is the homepage of an immersive virtual reality experience. Explore our VR tour below or navigate to other sections.
+<div class="container section hero">
+  <p class="mb-4"><strong>Lab without walls:</strong> where experiments meet everyday life. We prototype culture + AI with care, humour, and community spirit — rooted in Haringey, open to the world.</p>
 
-<!-- <a-scene embedded style="height: 400px; width: 100%;">
-  <a-sky src="{{ '/assets/images/sky.jpg' | url }}" rotation="0 -130 0"></a-sky>
-  <a-text value="Welcome to VR!" position="-1 2 -3"></a-text>
-  <a-camera position="0 1.6 0">
-    <a-cursor></a-cursor>
-  </a-camera>
-</a-scene> -->
+  <div class="mt-4">
+    <a class="btn btn-primary" href="{{ '/projects/threads-of-memory' | url }}">Explore <em>Threads of Memory</em></a>
+    <a class="btn" href="{{ '/lab-notes/' | url }}">Read Lab Notes</a>
+    <a class="btn" href="{{ '/about' | url }}">About the Lab</a>
+  </div>
 
-<!-- [Start the Tour]({{ '/tour' | url }}) -->
+  <figure class="mt-4 card p-4">
+    <!-- 🔁 Placeholder image: replace the src below with your chosen hero image -->
+    <img src="{{ '/assets/images/placeholder-hero.jpg' | url }}" alt="[TODO] Describe the hero image (e.g., woven textile pattern with digital overlays)">
+    <figcaption class="mt-2">Placeholder hero — swap this for your image. Keep it wide (≥1600px) for best quality.</figcaption>
+  </figure>
+</div>
+
+---
+
+## What we’re building
+
+- <strong>Threads of Memory</strong> — an immersive arts experiment weaving local textile heritage with sound + spatial media.
+- <strong>Culture x Tech</strong> — playful prototypes that make new tools feel human, inclusive, and locally useful.
+- <strong>Lab Notes</strong> — open work‑in‑progress so others can follow, learn, and remix.
+
+## Why it matters
+
+- Artist‑led prototyping with community voices.
+- Accessibility from the start (lo‑fi to hi‑fi; screen‑reader‑friendly docs; alt text on media).
+- Open knowledge: we publish methods, learnings, and templates.
+- Joy + humanity: we believe technology should feel playful, caring, and made for people — not just systems.
+
+<!-- ## Status (live)
+
+- Site scaffolded; theme toggle active (Fern ↔︎ Lab, Light ↔︎ Dark).
+- First prototype: VR/textile scene shell ready.
+- Lab Notes rolling updates. -->
+
+## Get involved
+
+- Collaborators, makers, neighbours, or just the curious — come say hi, share a story, or explore an idea with us.
+- Email: <a href="mailto:hello@rainforeststudios.xyz">hello@rainforeststudios.xyz</a>
+- Or say hi on <a href="https://www.linkedin.com/in/tanyapowell/" target="_blank" rel="noopener">LinkedIn</a>

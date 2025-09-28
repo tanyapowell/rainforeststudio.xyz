@@ -1,16 +1,33 @@
 ---
 layout: layouts/default.njk
 title: About
-description: Learn about Nova's VR Website
+description: About Rainforest Studio — a Lab without Walls bridging culture and AI
 permalink: /about/
 ---
 
-# About
+# About Rainforest Studio
 
-This website showcases a virtual reality experience built using Eleventy for static site generation, GitHub Pages for hosting, and A-Frame for VR rendering.
+Rainforest Studio is a **Lab without Walls** — a place where culture and technology meet to prototype new ideas, test them with real people, and share what we learn openly.
 
-## Features
+Founded by Tanya (aka *TanTan*), the studio is rooted in **Tottenham, Haringey** and connected to a wider creative tech community. We’re building pathways towards **Haringey Borough of Culture 2027**, ensuring local stories and creative voices are part of the future.
 
-- Immersive 360° environments
-- Interactive elements
-- Mobile-friendly VR
+## What we do
+
+- **Prototyping culture + AI** — playful experiments that combine heritage, storytelling, and emerging tools.
+- **Co‑creation** — working with local communities, makers, and artists to shape the projects.
+- **Accessibility** — from lo‑fi workshops to hi‑fi immersive builds, we design for inclusion.
+- **Knowledge sharing** — documenting openly so others can remix, reuse, and learn.
+
+## Why “Rainforest”?
+
+A rainforest is a **living system** — diverse, interconnected, resilient. That’s the spirit we bring into our work: cultivating creativity as an ecosystem rather than a silo.
+
+## Who’s involved
+
+- **Tanya / TanTan** — Founder, technologist, culture‑builder.
+- **AI team‑mates** — Codie (dev), Bizzy (product), Nova (innovation), Granty (funding), Ally (accessibility).
+- **Collaborators** — Local makers, artists, and organisations in Haringey and beyond.
+
+---
+
+Interested in collaborating? Reach out via [hello@rainforeststudios.xyz](mailto:hello@rainforeststudios.xyz) or connect on [LinkedIn](https://www.linkedin.com/in/tanyapowell/).

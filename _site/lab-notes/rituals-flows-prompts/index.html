@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VR Tour | Rainforest Studio</title>
-  <meta name="description" content="Explore the virtual reality tour">
+  <title>Adaptive Prompts | Rainforest Studio</title>
+  <meta name="description" content="Testing tone and variation in AI-generated daily prompts.">
   <link rel="stylesheet" href="/assets/css/main.css">
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 </head>
@@ -32,24 +32,22 @@
     </div>
   </header>
   <main class="site-main">
-    <h1>VR Tour</h1>
-<p>Dive into our virtual world!</p>
-<a-scene style="height: 600px; width: 100%;">
-  <a-assets>
-    <img id="panorama" src="/assets/images/panorama.jpg">
-  </a-assets>
-  <a-sky src="#panorama"></a-sky>
-  <a-cylinder position="0 1 -3" radius="0.5" height="2" color="#FFC65D" shadow>
-    <a-animation attribute="rotation" to="0 360 0" dur="10000" repeat="indefinite"></a-animation>
-  </a-cylinder>
-  <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-  <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-  <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-  <a-camera position="0 1.6 0" look-controls wasd-controls>
-    <a-cursor></a-cursor>
-  </a-camera>
-</a-scene>
-<p>Use your mouse to look around, or enter VR mode if on a compatible device.</p>
+    <blockquote>
+<p>Linked project: <a href="/projects/rituals-and-flows/">Rituals &amp; Flows</a></p>
+</blockquote>
+<p>We tested variable prompt tones — switching between <em>reflective</em>, <em>playful</em>, and <em>practical</em>.</p>
+<h3>What changed</h3>
+<ul>
+<li>Added <code>tone</code> parameter to the AI prompt generator</li>
+<li>Implemented quick toggle buttons in the dashboard</li>
+<li>Logged preferences to suggest tone automatically</li>
+</ul>
+<h3>Next steps</h3>
+<ul>
+<li>Prototype “seasonal flows” — prompts that shift over weeks</li>
+<li>Draft accessibility guidelines for tone choices</li>
+</ul>
+<p><a href="/lab-notes/">Back to lab notes</a></p>
 
   </main>
   <footer>
