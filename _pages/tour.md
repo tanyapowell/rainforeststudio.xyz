@@ -1,10 +1,10 @@
-```markdown
 ---
 layout: layouts/default.njk
 title: VR Tour
 description: Explore the virtual reality tour
 permalink: /tour/
 ---
+
 # VR Tour
 
 Dive into our virtual world!
@@ -26,4 +26,3 @@ Dive into our virtual world!
 </a-scene>
 
 Use your mouse to look around, or enter VR mode if on a compatible device.
-```

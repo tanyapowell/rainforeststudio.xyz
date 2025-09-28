@@ -1,4 +1,3 @@
-```javascript
 module.exports = function(eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
@@ -10,7 +9,7 @@ module.exports = function(eleventyConfig) {
 
   // Global data
   eleventyConfig.addGlobalData("site", {
-    title: "Nova's VR Website",
+    title: "Rainforest Studio",
     description: "An immersive virtual reality experience built with A-Frame and Eleventy.",
     url: "https://yourusername.github.io/your-repo-name",
     baseurl: "/your-repo-name"
@@ -29,4 +28,3 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: "njk"
   };
 };
-```

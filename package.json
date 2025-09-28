@@ -1,4 +1,3 @@
-```json
 {
   "name": "rainforest-vr-eleventy",
   "version": "1.0.0",
@@ -11,4 +10,3 @@
     "@11ty/eleventy": "^2.0.1"
   }
 }
-```

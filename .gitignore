@@ -8,3 +8,6 @@ summary.md
 bizzy.json
 nova.json
 nova_output.md
+artifacts/
+node_modules/
+.DS_Store
