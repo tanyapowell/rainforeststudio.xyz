@@ -1,0 +1,14 @@
+```json
+{
+  "name": "rainforest-vr-eleventy",
+  "version": "1.0.0",
+  "description": "VR website with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
+```

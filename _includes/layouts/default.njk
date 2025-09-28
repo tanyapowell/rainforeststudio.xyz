@@ -1,0 +1,31 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ '/' | url }}">Home</a></li>
+        <li><a href="{{ '/about' | url }}">About</a></li>
+        <li><a href="{{ '/tour' | url }}">VR Tour</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer>
+    <p>&copy; 2023 Nova's VR Website. Built with Eleventy and A-Frame.</p>
+  </footer>
+</body>
+</html>
+```
