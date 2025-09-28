@@ -11,15 +11,15 @@ description: Welcome to Rainforest Studio
   <p class="mb-4"><strong>Lab without walls:</strong> where experiments meet everyday life. We prototype culture + AI with care, humour, and community spirit — rooted in Haringey, open to the world.</p>
 
   <div class="mt-4">
-    <a class="btn btn-primary" href="{{ '/projects/threads-of-memory' | url }}">Explore <em>Threads of Memory</em></a>
+    <a class="btn btn-grow" href="{{ '/projects/threads-of-memory' | url }}">Open &amp; Grow</a>
     <a class="btn" href="{{ '/lab-notes/' | url }}">Read Lab Notes</a>
     <a class="btn" href="{{ '/about' | url }}">About the Lab</a>
   </div>
 
   <figure class="mt-4 card p-4">
     <!-- 🔁 Placeholder image: replace the src below with your chosen hero image -->
-    <img src="{{ '/assets/images/placeholder-hero.jpg' | url }}" alt="[TODO] Describe the hero image (e.g., woven textile pattern with digital overlays)">
-    <figcaption class="mt-2">Placeholder hero — swap this for your image. Keep it wide (≥1600px) for best quality.</figcaption>
+    <img src="{{ 'https://images.unsplash.com/photo-1602298674761-700e96568f5f?q=80&w=1766&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' | url }}" alt="[TODO] Describe the hero image (e.g., woven textile pattern with digital overlays)">
+    <!-- <figcaption class="mt-2">Placeholder hero — swap this for your image. Keep it wide (≥1600px) for best quality.</figcaption> -->
   </figure>
 </div>
 

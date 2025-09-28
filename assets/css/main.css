@@ -53,6 +53,23 @@
 
     --font-sans: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     --font-display: "Space Grotesk", "Manrope", sans-serif;
+
+    /* Moodboard-driven textures & gradients */
+    --hero-ink: color-mix(in oklch, var(--rs-text) 88%, black);
+    --hero-glow-1: color-mix(in oklch, var(--rs-accent) 28%, white);
+    --hero-glow-2: color-mix(in oklch, var(--rs-primary) 22%, black);
+    --hero-wash: color-mix(in oklch, var(--rs-bg) 92%, var(--rs-accent));
+
+    /* Moodboard palette accents */
+    --amber-dew: oklch(80% 0.12 75);
+    --amber-deep: oklch(68% 0.14 70);
+    --canopy-deep: color-mix(in oklch, var(--rs-primary) 88%, black 12%);
+    --canopy-grad: radial-gradient(120% 140% at 15% 20%, var(--amber-dew) 0%, transparent 45%),
+                   radial-gradient(120% 140% at 85% 25%, color-mix(in oklch, var(--rs-accent) 75%, white) 0%, transparent 55%),
+                   linear-gradient(180deg, color-mix(in oklch, var(--rs-primary) 90%, black) 0%, color-mix(in oklch, var(--rs-primary) 65%, white) 100%);
+
+    /* Tiny SVG noise texture (very subtle) */
+    --tx-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.04'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
@@ -84,6 +101,7 @@
 
   /* Dark mode for the fern theme: add both .theme-fern.dark */
   .theme-fern.dark {
+  .dark { --tx-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.025'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
     --ok-bg: #0F1A11;
     --ok-surface: #1A2E1F;
     --ok-ink: #E8F5EA;
@@ -324,8 +342,75 @@
   .card { background: var(--rs-surface); border: 1px solid var(--rs-border); border-radius: var(--rs-radius); box-shadow: var(--rs-shadow); }
 
   /* Hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--rs-radius);
+    border: 1px solid var(--rs-border);
+    padding: clamp(1rem, 1.5rem + 2vw, 2rem);
+    background-image:
+      radial-gradient(120% 120% at 8% 12%, var(--hero-glow-1) 0%, transparent 60%),
+      radial-gradient(120% 120% at 92% 8%, color-mix(in oklch, var(--hero-glow-2) 75%, white) 0%, transparent 55%),
+      var(--canopy-grad),
+      var(--tx-noise);
+    background-blend-mode: multiply, screen, normal, normal;
+  }
+
+  /* Ambient “seed” particles (very subtle) */
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    opacity: .22;
+  }
+  .hero::before {
+    background-image:
+      radial-gradient(8px 8px at 12% 30%, color-mix(in oklch, var(--rs-accent) 40%, white) 30%, transparent 32%),
+      radial-gradient(10px 10px at 78% 20%, color-mix(in oklch, var(--rs-primary) 35%, white) 30%, transparent 32%),
+      radial-gradient(7px 7px at 35% 70%, color-mix(in oklch, var(--rs-accent-2) 45%, white) 30%, transparent 32%);
+    animation: seeds-drift 18s linear infinite;
+  }
+  .hero::after {
+    background-image:
+      radial-gradient(6px 6px at 18% 85%, color-mix(in oklch, var(--rs-accent) 35%, white) 30%, transparent 32%),
+      radial-gradient(9px 9px at 60% 78%, color-mix(in oklch, var(--rs-primary) 30%, white) 30%, transparent 32%);
+    animation: seeds-drift-2 26s linear infinite;
+  }
+
+  @keyframes seeds-drift {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-6px) translateX(4px); }
+    100% { transform: translateY(0) translateX(0); }
+  }
+  @keyframes seeds-drift-2 {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(8px) translateX(-6px); }
+    100% { transform: translateY(0) translateX(0); }
+  }
+
   .hero h1 { margin: 0 0 .6rem 0; }
   .hero p { margin: 0; }
+
+  .hero h1 { font-size: clamp(1.9rem, 1.2rem + 3.2vw, 2.8rem); }
+  .hero p { line-height: 1.7; color: var(--hero-ink); }
+  .hero .btn-grow { background-clip: padding-box; }
+  /* Open & Grow — outline glow button */
+  .btn-grow {
+    --grow-border: color-mix(in oklch, var(--rs-surface) 80%, var(--rs-accent));
+    --grow-fill: color-mix(in oklch, var(--rs-surface) 92%, var(--amber-dew) 8%);
+    border-radius: 999px;
+    padding: .7rem 1.1rem;
+    border: 2px solid var(--grow-border);
+    background: var(--grow-fill);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--rs-accent) 18%, transparent) inset, 0 10px 22px rgba(0,0,0,.06);
+    backdrop-filter: blur(6px);
+  }
+  .btn-grow:hover { box-shadow: 0 0 0 4px color-mix(in oklch, var(--rs-accent) 28%, transparent) inset, 0 14px 34px rgba(0,0,0,.12); transform: translateY(-1px); }
+  .btn-grow:active { transform: translateY(0); }
+  .btn-grow::after { content: "→"; margin-left: .5rem; transition: transform var(--rs-speed) var(--rs-ease); }
+  .btn-grow:hover::after { transform: translateX(3px); }
 
   /* Project cards */
   .project-grid {
@@ -507,5 +592,6 @@
 @layer overrides {
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
+    .hero::before, .hero::after { animation: none !important; }
   }
 }
