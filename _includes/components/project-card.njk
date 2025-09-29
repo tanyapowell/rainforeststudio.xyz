@@ -1,0 +1,43 @@
+{% set project = project or {} %}
+{% set data = project.data or {} %}
+{% set cover = data.cover or '/assets/images/thread.jpg' %}
+{% set alt = data.alt or data.title or 'Project cover' %}
+{% set badges = data.badges %}
+{% if not badges %}
+  {% set badges = [] %}
+  {% if data.tags and 'prototype' in data.tags %}
+    {% set badges = badges.concat(['Prototype']) %}
+  {% endif %}
+  {% if data.tags and ('in-progress' in data.tags or 'wip' in data.tags) %}
+    {% set badges = badges.concat(['In Progress']) %}
+  {% endif %}
+  {% if data.tags and ('open-call' in data.tags or 'collab' in data.tags) %}
+    {% set badges = badges.concat(['Open']) %}
+  {% endif %}
+{% endif %}
+<article class="project-card" role="listitem">
+  <a href="{{ project.url }}" aria-label="Open project: {{ data.title }}">
+    <div class="project-card__image" role="img" aria-label="{{ alt }}" style="--img: url('{{ cover | url }}');"></div>
+    <div class="project-card__glass">
+      {% if badges and badges.length %}
+        <div class="project-card__badges">
+          {% for b in badges %}
+            {% set klass = 'badge' %}
+            {% if b | lower == 'prototype' %}{% set klass = klass + ' badge--prototype' %}{% endif %}
+            {% if b | lower == 'in progress' %}{% set klass = klass + ' badge--inprogress' %}{% endif %}
+            {% if b | lower == 'open' or b | lower == 'open call' %}{% set klass = klass + ' badge--open' %}{% endif %}
+            <span class="{{ klass }}">{{ b }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <h3 class="project-card__title">{{ data.title }}</h3>
+      {% if data.description %}
+        <p class="project-card__excerpt">{{ data.description }}</p>
+      {% endif %}
+      {% if data.meta %}
+        <p class="project-card__meta">{{ data.meta }}</p>
+      {% endif %}
+      <span class="project-card__cta">Explore project →</span>
+    </div>
+  </a>
+</article>

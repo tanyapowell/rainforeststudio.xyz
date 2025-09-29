@@ -6,48 +6,56 @@ permalink: /lab-notes/
 templateEngineOverride: njk
 ---
 
-<h1>Lab Notes</h1>
+<section class="section notes-section">
+  <div class="container">
+    <h1 class="section-title">Lab Notes</h1>
+    <p class="notes-intro">Peek behind the scenes as we prototype installations, tune VR environments, and translate community feedback into new features.</p>
 
-<p>Peek behind the scenes as we prototype installations, tune VR environments, and translate community feedback into new features.</p>
-
-<div class="project-grid" role="list">
-  {% for note in collections.notes %}
-    {% set project = collections.projects | findBySlug(note.data.project) %}
-    <article class="project-card note-card" role="listitem">
-      <div class="project-card__body">
-        {# Badges row (optional, safe) #}
-        <div class="project-card__badges">
-          {% if project %}
-            <span class="badge badge--prototype">{{ project.data.title }}</span>
-          {% endif %}
+    {% set notes = collections.notes | reverse %}
+    {% if notes | length %}
+      <ul class="notes-grid" role="list">
+        {% for note in notes %}
+          {% set related = collections.projects | findBySlug(note.data.project) %}
+          {% set displayTags = [] %}
           {% if note.data.tags %}
-            {% for t in note.data.tags %}
-              <span class="badge">{{ t }}</span>
+            {% for tag in note.data.tags %}
+              {% if tag and tag != 'lab-notes' %}
+                {% set displayTags = displayTags.concat([tag]) %}
+              {% endif %}
             {% endfor %}
           {% endif %}
-        </div>
-
-        <h2 class="project-card__title" style="margin-top:.5rem;"><a href="{{ note.url }}">{{ note.data.title }}</a></h2>
-
-        {% if note.data.summary %}
-          <p class="project-card__excerpt">{{ note.data.summary }}</p>
-        {% else %}
-          <p class="project-card__excerpt">{{ note.data.description or note.templateContent | truncate(140, true, "…") }}</p>
-        {% endif %}
-
-        {% if note.data.date %}
-          <p class="note-card__meta">{{ note.data.date | readableDate }}</p>
-        {% endif %}
-        {% if project %}
-          <p class="note-card__project">Project: <a href="{{ project.url }}">{{ project.data.title }}</a></p>
-        {% endif %}
-
-        <a class="project-card__cta-link" href="{{ note.url }}">Read note →</a>
-      </div>
-    </article>
-  {% endfor %}
-</div>
-
-{% if collections.notes | length == 0 %}
-  <p class="project-empty">Lab notes are being stitched together. Check back soon!</p>
-{% endif %}
+          {% set metaBits = [] %}
+          {% if note.date %}
+            {% set metaBits = metaBits.concat([note.date | readableDate('d LLL yyyy')]) %}
+          {% endif %}
+          {% if related %}
+            {% set metaBits = metaBits.concat(['Project: ' + related.data.title]) %}
+          {% endif %}
+          {% if displayTags.length %}
+            {% set metaBits = metaBits.concat([displayTags | join(', ')]) %}
+          {% endif %}
+          {% set excerpt = note.data.summary or note.data.description or note.templateContent | striptags | truncate(180, true, '…') %}
+          <li class="note-card card" role="listitem">
+            <a class="note-card__link" href="{{ note.url }}">
+              <span class="note-card__pin" aria-hidden="true">📌</span>
+              <h3 class="note-card__title">{{ note.data.title }}</h3>
+              {% if metaBits.length %}
+                <p class="note-card__meta">{{ metaBits | join(' · ') }}</p>
+              {% endif %}
+              <p class="note-card__excerpt">{{ excerpt }}</p>
+              {% if displayTags.length %}
+                <div class="note-card__tags" aria-label="Tags">
+                  {% for chip in displayTags %}
+                    <span class="chip">{{ chip }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="notes-empty">Lab notes are being stitched together. Check back soon!</p>
+    {% endif %}
+  </div>
+</section>

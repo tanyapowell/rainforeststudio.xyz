@@ -1,6 +1,38 @@
 const { DateTime } = require("luxon");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItTOC = require("markdown-it-table-of-contents");
+const slugifyLib = require("slugify");
+const { JSDOM } = require("jsdom");
+
+const slugify = (value) =>
+  slugifyLib(value, {
+    lower: true,
+    strict: true,
+    remove: /[^A-Za-z0-9\s-]/g
+  });
 
 module.exports = function(eleventyConfig) {
+  const markdown = markdownIt({
+    html: true,
+    linkify: true,
+    typographer: true
+  })
+    .use(markdownItAnchor, {
+      slugify,
+      permalink: false,
+      tabIndex: false,
+      level: [2, 3, 4]
+    })
+    .use(markdownItTOC, {
+      slugify,
+      includeLevel: [2, 3],
+      containerClass: "toc-inline",
+      markerPattern: /\[\[toc\]\]/i
+    });
+
+  eleventyConfig.setLibrary("md", markdown);
+
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
 
@@ -52,6 +84,19 @@ module.exports = function(eleventyConfig) {
       const noteProject = (item.data.project || item.data.projectSlug || item.fileSlug || "").toString().toLowerCase();
       return noteProject === target;
     });
+  });
+
+  eleventyConfig.addFilter("headings", function(content, levels = [2, 3]) {
+    if (!content) return [];
+    const dom = new JSDOM(`<body>${content}</body>`);
+    const document = dom.window.document;
+    const selector = levels.map((level) => `h${level}[id]`).join(",");
+    if (!selector) return [];
+    return Array.from(document.querySelectorAll(selector)).map((node) => ({
+      id: node.id,
+      text: node.textContent.trim(),
+      level: Number(node.tagName.replace("H", ""))
+    }));
   });
 
   // Global data

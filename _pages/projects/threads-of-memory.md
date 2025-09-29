@@ -53,7 +53,7 @@ _An immersive arts experiment weaving textile heritage with sound and spatial me
 - Tactile interaction on the quilt for non‑visual access.
 - Free workshops in familiar community spaces; translation support where possible.
 
-### Roadmap**
+### Roadmap
 
 - _Prepare_ — visuals, mockups, and collaborator convening.
 - _Prototype_ — audio walk + quilt sensor test; internal iterations.

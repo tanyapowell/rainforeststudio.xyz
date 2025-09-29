@@ -32,6 +32,9 @@
     </div>
   </header>
   <main class="site-main">
+    {% if toc %}
+      {% include "components/toc.njk" %}
+    {% endif %}
     {{ content | safe }}
   </main>
   <footer>
@@ -124,5 +127,6 @@
       }
     })();
   </script>
+  <script defer src="{{ '/assets/js/micro.js' | url }}"></script>
 </body>
 </html>

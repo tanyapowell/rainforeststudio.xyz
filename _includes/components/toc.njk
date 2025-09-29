@@ -1,0 +1,16 @@
+{% set tocHeadings = (pageContent or content) | headings %}
+{% if tocHeadings and tocHeadings.length %}
+<details class="mini-toc" data-mini-toc open>
+  <summary class="mini-toc__summary" role="heading" aria-level="2">
+    <span class="mini-toc__label">On this page</span>
+    <span class="mini-toc__chevron" aria-hidden="true"></span>
+  </summary>
+  <ul class="mini-toc__list">
+    {% for item in tocHeadings %}
+      <li class="mini-toc__item mini-toc__item--level-{{ item.level }}">
+        <a href="#{{ item.id }}">{{ item.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
