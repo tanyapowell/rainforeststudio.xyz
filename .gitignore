@@ -11,3 +11,4 @@ nova_output.md
 artifacts/
 node_modules/
 .DS_Store
+docs/

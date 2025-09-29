@@ -77,19 +77,15 @@ _An immersive arts experiment weaving textile heritage with sound and spatial me
 - **Touch triggers** mapped from textiles to story vignettes (prototype).
 - A lightweight **steward dashboard** concept for adding stories without code. -->
 
-### Prototype visuals (placeholders)
+### Prototype visuals
 
 <div class="card p-4">
   <figure class="mb-4">
-    <img src="{{ '/assets/images/placeholder-audio-walk.jpg' | url }}" alt="Audio walk mockup along the Weaver Line — placeholder">
+    <img src="{{ '/assets/images/walk-mockup.png' | url }}" alt="Audio walk mockup along the Weaver Line — placeholder">
     <figcaption class="mt-2">Audio Walk — QR‑linked web app (placeholder)</figcaption>
   </figure>
-  <figure class="mb-4">
-    <img src="{{ '/assets/images/placeholder-map.jpg' | url }}" alt="Map of Bruce Grove, Seven Sisters, Hackney Downs, Bethnal Green — placeholder">
-    <figcaption class="mt-2">Weaver Line map (placeholder)</figcaption>
-  </figure>
   <figure>
-    <img src="{{ '/assets/images/placeholder-quilt.jpg' | url }}" alt="Projection‑mapped fabric panel with a single interactive sensor — placeholder">
+    <img src="{{ '/assets/images/quilt.png' | url }}" alt="Projection‑mapped fabric panel with a single interactive sensor — placeholder">
     <figcaption class="mt-2">Sound quilt prototype (placeholder)</figcaption>
   </figure>
 </div>
