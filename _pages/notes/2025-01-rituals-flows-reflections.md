@@ -4,7 +4,7 @@ title: Rituals & Flows — Reflection
 description: Wrapping the prototype sprint and identifying lessons learned.
 summary: Closed the sprint with learnings about modular design, AI tone, and accessibility tradeoffs.
 permalink: /lab-notes/rituals-flows-reflection/
-date: 2025-12-31
+date: 2024-12-31
 tags:
   - lab-notes
   - reflection
