@@ -9,7 +9,7 @@ permalink: /about/
 
 Rainforest Studio is a **Lab without Walls** — a place where culture and technology meet to prototype new ideas, test them with real people, and share what we learn openly.
 
-Founded by Tanya (aka *TanTan*), the studio is rooted in **Tottenham, Haringey** and connected to a wider creative tech community. We’re building pathways towards **Haringey Borough of Culture 2027**, ensuring local stories and creative voices are part of the future.
+Founded by Tanya, the studio is rooted in **London** and connected to a wider creative tech community. We’re building pathways towards **Haringey Borough of Culture 2027**, ensuring local stories and creative voices are part of the future.
 
 ## What we do
 
@@ -24,7 +24,7 @@ A rainforest is a **living system** — diverse, interconnected, resilient. That
 
 ## Who’s involved
 
-- **Tanya / TanTan** — Founder, technologist, culture‑builder.
+- **Tanya** — Founder, technologist, culture‑builder.
 - **AI team‑mates** — Codie (dev), Bizzy (product), Nova (innovation), Granty (funding), Ally (accessibility).
 - **Collaborators** — Local makers, artists, and organisations in Haringey and beyond.
 
